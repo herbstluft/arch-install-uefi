@@ -45,7 +45,7 @@ def inicio():
 ################################# Confirmacion para continuar #######################################
     
     respuesta=('y')
-    continuar=input("Presione "y" para continuar. ")    
+    continuar=input("Presione (y) para continuar. ")    
 ##################################################################################################    
     import os
     os.system('clear')
@@ -74,8 +74,8 @@ def inicio():
     import os
     os.system('sleep 3s')
 
-   import os
-   os.system('clear')
+    import os
+    os.system('clear')
 ## Montar sistema
     print("---------------------------------")
     print("Montando sistema, espere...")
@@ -92,8 +92,6 @@ def inicio():
     import os
     os.system('mount /dev/sda1 /mnt/boot')
 
-    import os
-    os.system('echo ParallelDownloads = 15 >> /etc/pacman.conf')
 ### Pacstrap
     print("---------------------------------")
     print("Descargando kernel y paquetes")
