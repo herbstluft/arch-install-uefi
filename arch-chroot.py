@@ -5,7 +5,7 @@ def chroot():
     import os
     os.system('arch-chroot /mnt ')
     import os
-    os.system('echo LANG=es_MX.UTF-8 UTF-8 >> /etc/locale.gen')
+    os.system('nano /etc/locale.gen')
     import os
     os.system('touch /etc/locale.conf')
     import os
@@ -59,7 +59,7 @@ def chroot():
     print("Agregando sudoers, espere...")
     print("---------------------------------")
     import os
-    os.system('echo hack ALL=(ALL) ALL >> /etc/sudoers')
+    os.system('nano /etc/sudoers')
     import os
     os.system('sleep 2s')
 #grub
@@ -76,8 +76,6 @@ def chroot():
     os.system('grub-mkconfig -o /boot/grub/grub.cfg')
     import os
     os.system('mkinitcpio -P')
-    import os
-    os.system('exit')
     print("---------------------------------")
     print(" Instalacion terminada con exito ")
     print("---------------------------------")
