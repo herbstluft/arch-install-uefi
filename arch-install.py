@@ -98,7 +98,7 @@ def inicio():
     print("---------------------------------")
     import os
     os.system('pacstrap /mnt base base-devel nano dhcpcd netctl iwd net-tools wireless_tools networkmanager wpa_supplicant dialog grub efibootmgr os-prober openssh linux linux-firmware linux-headers mkinitcpio xterm lxdm i3 terminus-font')
-    priknt("--------------------------------------")
+    print("--------------------------------------")
     print("Acabando descarga del kernel, espere...")
     print("---------------------------------------")
 ### Genfstab
