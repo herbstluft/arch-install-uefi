@@ -8,8 +8,12 @@ Pueden descargar la ISO de ArchLinux desde la pagina oficial, les dejo el siguie
 
 ### Instrucciones de uso
 
-Como primer paso sera instalar git, este script se podra utilizar solo con conexion a internet, ya que solo asi podriamos clonarlo, o otra opcion seria descargar
-los script pero antes de grabar la memoria con el sistema live.
+Como primer paso sera estar conectado a una red de internet, e instalar git, este script se podra utilizar solo con conexion a internet, ya que solo asi 
+podriamos clonarlo.
+```shell
+pacman -S git
+```
+
 
 Una vez que esten dentro del sistema live de la ISO de ArchLinux clonen el repositorio de la siguiente manera.
 
