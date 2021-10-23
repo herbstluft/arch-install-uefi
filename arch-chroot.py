@@ -7,8 +7,6 @@ def chroot():
     import os
     os.system('echo LANG=es_MX.UTF-8 UTF-8 >> /etc/locale.gen')
     import os
-    os.system('locale-gen')
-    import os
     os.system('touch /etc/locale.conf')
     import os
     os.system('echo "LANG=es_MX.UTF-8" >> /etc/locale.conf')
