@@ -1,5 +1,5 @@
 ## arch-install
-He desarrollado este script con la finalidad de ahorar tiempo en la hora de instalacion y compilacion de Archlinux, espero y les sea de gran ayuda. (Se vienen mejoras)
+He desarrollado este script con la finalidad de ahorrar tiempo a la hora de instalacion y compilacion de Archlinux, espero y les sea de gran ayuda. (Se vienen mejoras)
 ##
 
 ### ISO Archlinux
