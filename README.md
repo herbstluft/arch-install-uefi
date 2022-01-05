@@ -32,7 +32,7 @@ Lo que haremos sera ejecutar el [arch-install.py](https://github.com/herbstluft/
 python arch-install.py
 ```
 
-Asi seguiremos las instrucciones hasta que se pare y nos pregunte si queremos avanzar con el [arch-chroot.py](https://github.com/herbstluft/arch-install/blob/main/arch-chroot.py).
+Asi seguiremos las instrucciones hasta que se pare y nos toque avanzar con el [arch-chroot.py](https://github.com/herbstluft/arch-install/blob/main/arch-chroot.py).
 
 
 
