@@ -1,39 +1,30 @@
 import os
 
-#from colorama.ansi import Fore
+style = ("----------------------------------------------------------│")
 os.system('clear')
-print("-----------------------------------------------------------│")
+print()
+print("Autor: Juan Angel Castañeda Chavez")
+print(style)
 print("Actualizando sistema, porfavor espere....		  │")
-print("-----------------------------------------------------------│")
+print(style)
 # Actualizar sistema
-import os
-os.system('pacman -Sy')
-
-import os
-os.system('sleep 2s')
-
+os.system('sudo pacman -Sy')
+os.system('sleep 3s')
 #from colorama import init
 #Bienvendia
-def inicio():
-    import os
-    os.system('clear')
-    print("│-------------------------│")
-    print("  --==[ BIENVENIDO ]==-- ")
-    print("│-------------------------│")
-    import os
-    os.system('sleep 1s')
-    print("")
-    print("Configurando teclado al español (es)...")
-    import os
-    os.system('loadkeys es')
-    import os
-    os.system('sleep 2s')
+os.system('clear')
+print("│-------------------------│")
+print("  --==[ BIENVENIDO ]==-- ")
+print("│-------------------------│")
+os.system('sleep 2s')
+print("")
+print("Configurando teclado al español (es)...")
+os.system('loadkeys es')
+os.system('sleep 1s')
+os.system('clear')
 
-    import os
-    os.system('clear')
-
-    print("-------------------------------------------------------------------------------------------")
-    print("""A continuacion realice las 3 particiones principales de su disco duro:
+print("-------------------------------------------------------------------------------------------")
+print("""A continuacion realice las 3 particiones principales de su disco duro:
    
     "IMPORTANTE: Disklabel type debe ser tipo GTP"
 
@@ -44,97 +35,110 @@ def inicio():
 
 ################################# Confirmacion para continuar #######################################
     
-    respuesta=('y')
-    continuar=input("Presione (y) para continuar. ")    
-##################################################################################################    
-    import os
+respuesta=('y')
+continuar=input("¿Desea continuar? (y/n) ")
+    
+if continuar == respuesta:
+    ##################################################################################################    
     os.system('clear')
 
-## Particiones ##    
-    import os
+    ## Particiones ##    
     os.system('fdisk /dev/sda')
-    import os
     os.system('clear')
     
 #### Formateo de particiones
 
-    print("########## Formateando particiones ##########")
+    print(style)
+    print("                 Formateando Particiones                   ")
+    print(style)
     print("")
 
-    import os
     os.system('mkfs.fat -F 32 /dev/sda1 > /dev/null')
-    import os
     os.system('mkswap /dev/sda2 > /dev/null')
-    import os
     os.system('swapon')
-    import os
     os.system('mkfs.ext4 /dev/sda3 > /dev/null')
-    print("---------------------------------")
-    print("Acabando formateo de particiones espere...")
-    import os
-    os.system('sleep 3s')
-
-    import os
-    os.system('clear')
-## Montar sistema
-    print("---------------------------------")
-    print("Montando sistema, espere...")
-    print("---------------------------------")
-    import os
+    print(style)
+    print("        Acabando formateo de particiones espere...         ")
+    print(style)
     os.system('sleep 2s')
-    import os
+    os.system('clear')
+
+    ## Montar sistema
+    print(style)
+    print("              Montando sistema, espere...                  ")
+    print(style)
+    os.system('sleep 2s')
     os.system('mount /dev/sda3 /mnt/')
-    import os
     os.system('mkdir /mnt/boot')
-    print("Directorio creado")
-    import os
+    print("Directorio creado >> /mnt/boot")
     os.system('sleep 3s')
-    import os
     os.system('mount /dev/sda1 /mnt/boot')
-
-### Pacstrap
-    print("---------------------------------")
-    print("Descargando kernel y paquetes")
-    print("---------------------------------")
-    import os
-    os.system('pacstrap /mnt base base-devel nano dhcpcd netctl iwd net-tools wireless_tools networkmanager wpa_supplicant dialog grub efibootmgr os-prober openssh linux linux-firmware linux-headers mkinitcpio xterm lxdm i3 terminus-font')
-    print("--------------------------------------")
-    print("Acabando descarga del kernel, espere...")
-    print("---------------------------------------")
-### Genfstab
-    import os
-    os.system('sleep 1s')
-
-    import os
     os.system('clear')
-    print("---------------------------------")
-    print("Generando genfstab, espere...    ")
-    print("---------------------------------")               
-    import os
-    os.system('genfstab -p /mnt')
-    import os
-    os.system('genfstab -p /mnt >> /mnt/etc/fstab')
-    import os
+
+    ### Pacstrap
+    print(style)
+    print("             Descargando kernel y paquetes                 ")
+    print(style)
+    print()
+    print("[*] Esto tardara un poco, Espere....")
+    os.system('pacstrap /mnt base base-devel nano dhcpcd netctl iwd net-tools wireless_tools networkmanager wpa_supplicant dialog grub efibootmgr os-prober openssh linux linux-firmware linux-headers mkinitcpio xterm lxdm terminus-font go > /dev/null')
+    print("""
+             INSTALANDO
+-------------------------------------
+* base              * wireless_tools
+* base-devel        * networkmanager
+* nano              * wpa_supplicant
+* dhcpcd            * dialog
+* netctl            * grub
+* iwd               * efibootmgr
+* net-tools         * os-prober
+* openssh           * linux
+* linux-firmware    * linux-headers
+* mkinitcpio        * xterm
+* lxdm              * terminus-font
+* go         
+-------------------------------------
+        """)
+    print(style)
+    print("         Acabando descarga del kernel, espere...           ")
+    print(style)
     os.system('sleep 2s')
+    ### Genfstab
 
-    import os
+    os.system('clear')
+    print(style)
+    print("              Generando genfstab, espere...                ")
+    print(style)            
+    os.system('genfstab -p /mnt')
+    os.system('genfstab -p /mnt >> /mnt/etc/fstab')
     os.system('clear')
 
-    print("---------------------------------")
-    print("Configuracion de usuario, espere...")
-    print("---------------------------------")
-    
-    import os
+    print(style)
+    print("           Configuracion de usuario, espere...             ")
+    print(style)
+        
     os.system('cp arch-chroot.py /mnt/')
-    import os
     os.system('cd /mnt/')
+    print("""   
+------------------------------------------------------------------------------- 
+                            ---===> ATENCION <===---
+-------------------------------------------------------------------------------        
+Esta a punto de terminar el primer script de instalacion, al acabarlo podra 
+iniciar la configuracion del usuario solo ejecutando:
+    ____________________________
+   |   python arch-chroot.py    |
+    ----------------------------   
+    """)
+    print()
+    respuesta2= 'y'
+    continuar2 =input("Presione (y) para continuar:")
+
+        
+        
+else:
+    print("-----------------------------------")
+    print("Gracias por probar este script")
+    print("----------------------------------")
     
-
-    import os
-    os.system('python /mnt/arch-chroot.py')
-    import os
-    os.system('sleep 1s')
-
-
-inicio()
-
+os.system('python /mnt/arch-chroot.py')
+    
