@@ -1,6 +1,4 @@
 import os
-from types import CellType
-style = ("----------------------------------------------------------│")
 ### configuracion de usuario
 os.system('arch-chroot /mnt ')
 os.system('echo es_MX.UTF-8 UTF-8 >> /etc/locale.gen')
@@ -10,6 +8,7 @@ os.system('locale-gen')
 os.system('touch /etc/locale.conf')
 os.system('echo "LANG=es_MX.UTF-8" >> /etc/locale.conf')
 os.system('sleep 1s')
+style = ("----------------------------------------------------------│")
 ### Zona horaria
 print(style)
 print("           Generando Zona Horaria, espere...               ")
