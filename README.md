@@ -18,7 +18,7 @@ pacman -S git
 Una vez que esten dentro del sistema live de la ISO de ArchLinux clonen el repositorio de la siguiente manera.
 
 ```shell
-git clone https://github.com/herbstluft/arch-install
+git clone https://github.com/herbstluft/arch-install-uefi
 ```
 A continuacion, introducirse a la carpeta clonada, en este caso "arch-install"
 ```
