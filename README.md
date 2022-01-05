@@ -6,9 +6,53 @@ He desarrollado este script con la finalidad de ahorrar tiempo a la hora de inst
 Pueden descargar la ISO de ArchLinux desde la pagina oficial, les dejo el siguiente [enlace](https://archlinux.org/download/)
 ##
 
-### Instrucciones de uso
+### Conexion manual a internet
+Como primer paso sera estar conectado a una red de internet, e instalar git, a continuacion se explicara como conectarse a internet mediante networkmanager y wpa_supplicant.
 
-Como primer paso sera estar conectado a una red de internet, e instalar git, este script se podra utilizar solo con conexion a internet, ya que solo asi 
+Utilizamos wpa_passphrase para guardad la informacion de la red.
+```shell
+wpa_passphrase (Nombre_de_la_Red) password (Contraseña_de_la_red) > /etc/wifi
+```
+Habilitamos el servicio de dhcpcd
+```shell
+systemctl enable dhcpcd
+```
+```shell
+systemctl start dhcpcd
+``````
+Habilitamos el servicio de networkmanager
+```shell
+systemctl enable NetworkManager
+```
+```shell
+systemctl start NetworkManager
+```
+Ahora establecemos conexion con la red de internet, estableciendo las credenciales correctas
+
+```shell
+wpa_supplicant -i (tarjeta_de_red) -D wext -c /etc/wifi
+```
+Con eso lograremos establecer una conexion correctamente, podemos confirmar que tenemos conexion a internet ejecutando un ping
+```shell
+ping 8.8.8.8
+```
+
+Comos resultado deberia darnos esto:
+```shell
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=116 time=29.6 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=116 time=29.4 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=116 time=29.4 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=116 time=29.4 ms
+64 bytes from 8.8.8.8: icmp_seq=5 ttl=116 time=29.3 ms
+64 bytes from 8.8.8.8: icmp_seq=6 ttl=116 time=29.3 ms
+```
+
+
+##
+
+### Instrucciones de uso
+Este script se podra utilizar solo con conexion a internet, ya que solo asi 
 podriamos clonarlo.
 ```shell
 pacman -S git
@@ -35,8 +79,12 @@ python arch-install.py
 Asi seguiremos las instrucciones hasta que se pare y nos toque avanzar con el [arch-chroot.py](https://github.com/herbstluft/arch-install/blob/main/arch-chroot.py).
 
 
-
-
+##
+### Ventajas de estos script
+* Es un script automatizado
+* Sencillo de ejecutar
+* Ahorra tiempo
+* Da a elejir un entorno grafico
 
 ##
 ### Contribuyendo
