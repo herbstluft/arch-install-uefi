@@ -9,7 +9,6 @@ print("Actualizando sistema, porfavor espere....		  │")
 print(style)
 # Actualizar sistema
 os.system('sudo pacman -Sy')
-os.system('sleep 3s')
 #from colorama import init
 #Bienvendia
 os.system('clear')
