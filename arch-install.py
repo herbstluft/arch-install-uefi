@@ -139,5 +139,3 @@ else:
     print("Gracias por probar este script")
     print("----------------------------------")
     
-os.system('python /mnt/arch-chroot.py')
-    
